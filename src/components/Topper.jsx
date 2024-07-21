@@ -4,7 +4,7 @@ import { useRef } from 'react'
 
 
 const Topper = ({ }) => {
-  return <div className="topper full-width">
+  return <div className="topper full-row">
     <div className="topperCol1">
       <div className="name">Jonathan Hooker</div>
       <div>Portland, OR</div>
