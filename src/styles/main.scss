@@ -17,7 +17,7 @@ body {
     display: grid;
     grid-template-columns: repeat($colCountFull, 1fr);
     grid-auto-rows: min-content;
-    column-gap: 0.5em;
+    column-gap: 1em;
     padding: 1em 3em;
 
     .full-row {
@@ -33,6 +33,7 @@ body {
         grid-auto-rows: min-content;
 
         .sectionTitle {
+            text-transform: uppercase;
             font-weight: 100;
             grid-column: span $colCountFull;
             font-size: 3.5rem;
@@ -40,12 +41,12 @@ body {
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
             -webkit-text-fill-color: transparent;
-            padding-bottom: .33em;
+            padding-bottom: 1em;
         }
     }
 
     .home {
-        min-height: 50vh;
+        // min-height: 50vh;
     }
 
     .topper {
@@ -53,6 +54,13 @@ body {
         grid-template-columns: subgrid;
         font-size: 0.75em;
         grid-auto-rows: min-content;
+
+        .dash {
+            border-top: 1px black solid;
+            padding-bottom: 1em;
+            grid-row: unset;
+            grid-column: span 2;
+        }
 
         >div {
             display: grid;
@@ -113,6 +121,48 @@ body {
             li {
                 padding: 0;
                 border-bottom: none;
+            }
+        }
+    }
+
+    .about {
+        font-size: 0.65em;
+
+        .bodyCopy {
+            line-height: 2em;
+            text-transform: uppercase;
+            grid-column: span 3;
+            grid-row: span 2;
+            padding-bottom: 2em;
+
+            p {
+                padding-bottom: 2em;
+            }
+
+
+            // &:nth-child(2n + 1) {
+            //     // padding-top: 4em;
+            //     grid-column-start: 4;
+            //     grid-column-end: 7;
+            // }
+
+            // &:nth-child(3n + 1) {
+            //     grid-column-start: 3;
+            //     grid-column-end: 6;
+            // }
+        }
+
+        .listBox {
+            // border: 1px black solid;
+
+            .listTitle {
+                padding-bottom: 1em;
+                border-bottom: 1px black solid;
+            }
+
+            ul {
+                text-transform: uppercase;
+                padding-top: 1em;
             }
         }
     }

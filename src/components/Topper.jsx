@@ -2,16 +2,25 @@
 
 import { useRef } from 'react'
 
+const Dashes = () => {
+  const arr = [0, 0, 0];
+  return (
+    <>
+      {arr.map((object, i) => <div key={i} className='dash' />)}
+    </>
+  )
+}
 
 const Topper = ({ }) => {
   return <div className="topper full-row">
+    <Dashes></Dashes>
     <div className="topperCol1">
       <div className="name">Jonathan Hooker</div>
       <div>Portland, OR</div>
     </div>
     <div className="titles">
-      <div>Creative Director</div>
-      <div>Engineer</div>
+      <div>Creative Engineer</div>
+      <div>Tech Director</div>
       <div>Maker</div>
     </div>
 

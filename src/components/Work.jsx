@@ -9,17 +9,17 @@ const projectData = [
   {
     client: "NETFLIX",
     project: "AVATAR: THE LAST AIRBENDER",
-    tech: ["webgl", "react", "aws", "serverless"]
-  },
-  {
-    client: "NETFLIX",
-    project: "AVATAR: THE LAST AIRBENDER",
-    tech: ["webgl", "react", "aws", "serverless", "Unity", "C#", "Swift", "AWS", "Serverless"]
+    tech: ["react", "webgl", "aws", "lambda", "cdk", "s3", "ec2", "python", "machine learning"]
   },
   {
     client: "NBC",
     project: "Quantum Leap HQ",
-    tech: ["Unity", "C#", "Swift", "AWS", "Serverless"]
+    tech: ["Unity", "C#", "Swift", "ARKit", "AWS", "Lambda", "SES", "S3"]
+  },
+  {
+    client: "Paramount",
+    project: "TMNT Mutant Mayhem AR Filters",
+    tech: ["Spark AR", "Lens Studio", "Effect House", "Javascript", "Visual Scripting"]
   },
   {
     client: "WarnerBros",
@@ -29,29 +29,29 @@ const projectData = [
   {
     client: "WarnerBros",
     project: "Reminiscence",
-    tech: ["WebGL", "Javascript", "Cloud RENDERING"]
+    tech: ["WebGL", "Javascript", "Blender", "MACHINE LEARNING", "Cloud RENDERING"]
   },
   {
     client: "Paramount",
     project: "Maverick photobooth",
-    tech: ["Unreal", "CapacitorJS", "WEBGL", "Swift"]
+    tech: ["Unreal", "CapacitorJS", "WEBGL", "Swift", "AR Core"]
   },
   {
     client: "Lionsgate ",
     project: "cageaissance",
-    tech: ["WebGL", "AUGMENTED REALITY", "Photogrammetry"]
+    tech: ["Javascript", "WebGL", "8th Wall", "AUGMENTED REALITY", "Photogrammetry"]
   },
   {
     client: "Lionsgate ",
     project: "Moonfall",
-    tech: ["WebGL", "AUGMENTED REALITY"]
+    tech: ["Javascript", "WebGL", "8th Wall", "AUGMENTED REALITY"]
   }
 ]
 
 const Work = ({ }) => {
 
   return <div className="work section full-width">
-    <div className='sectionTitle'>FEATURED WORK</div>
+    <div className='sectionTitle'>RECENT WORK</div>
     <div className='titles full-row'>
       <div className='client-row'>CLIENT</div>
       <div className='project-row'>PROJECT</div>
