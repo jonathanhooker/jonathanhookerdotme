@@ -1,7 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+
 $colCountFull: 6;
 
-.wrapper {
+body {
     font-size: 20px;
+
+}
+
+.wrapper {
+    font-family: "JetBrains Mono", monospace;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+
     line-height: 0.9em;
     display: grid;
     grid-template-columns: repeat($colCountFull, 1fr);
@@ -22,9 +33,14 @@ $colCountFull: 6;
         grid-auto-rows: min-content;
 
         .sectionTitle {
+            font-weight: 100;
             grid-column: span $colCountFull;
-            font-size: 3em;
+            font-size: 3.5rem;
             line-height: 1em;
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            -webkit-text-fill-color: transparent;
+            padding-bottom: .33em;
         }
     }
 
@@ -62,6 +78,7 @@ $colCountFull: 6;
     }
 
     .work {
+        font-size: 0.6em;
 
         .titles {
             border-bottom: 1px black solid;
