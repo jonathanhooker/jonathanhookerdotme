@@ -5,7 +5,7 @@ $lightGray: #888888;
 
 html {
     font-size: 20px;
-
+    font-size: max(20px, 1.4vw);
 }
 
 .wrapper {
