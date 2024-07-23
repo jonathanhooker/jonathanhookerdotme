@@ -2,6 +2,7 @@
 import { Topper } from '@/components/Topper'
 import { Work } from '@/components/Work'
 import { About } from '@/components/About'
+import { Footer } from '@/components/Footer'
 import '@/styles/main.scss'
 
 const Spacer = ({ height }) => {
@@ -20,6 +21,7 @@ export default function Page() {
       <Spacer height={10}></Spacer>
       <About></About>
       <Spacer height={10}></Spacer>
+      <Footer></Footer>
 
     </div>
   )

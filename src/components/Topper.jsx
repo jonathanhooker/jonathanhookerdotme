@@ -5,9 +5,9 @@ import { useRef } from 'react'
 const Dashes = () => {
   const arr = [0, 0, 0];
   return (
-    <>
+    <div className='dashes'>
       {arr.map((object, i) => <div key={i} className='dash' />)}
-    </>
+    </div>
   )
 }
 

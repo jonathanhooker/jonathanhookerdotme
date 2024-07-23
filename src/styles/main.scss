@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
 
 $colCountFull: 6;
+$lightGray: #888888;
 
-body {
+html {
     font-size: 20px;
 
 }
@@ -36,12 +37,12 @@ body {
             text-transform: uppercase;
             font-weight: 100;
             grid-column: span $colCountFull;
-            font-size: 3.5rem;
+            font-size: 3rem;
             line-height: 1em;
             -webkit-text-stroke-width: 1px;
             -webkit-text-stroke-color: black;
             -webkit-text-fill-color: transparent;
-            padding-bottom: 1em;
+            padding-bottom: 2rem;
         }
     }
 
@@ -55,11 +56,17 @@ body {
         font-size: 0.75em;
         grid-auto-rows: min-content;
 
-        .dash {
-            border-top: 1px black solid;
-            padding-bottom: 1em;
-            grid-row: unset;
-            grid-column: span 2;
+        .dashes {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: span $colCountFull;
+
+            .dash {
+                border-top: 1px black solid;
+                padding-bottom: 1em;
+                grid-row: unset;
+                grid-column: span 2;
+            }
         }
 
         >div {
@@ -75,7 +82,8 @@ body {
 
                 &.name {
                     line-height: 1em;
-                    font-size: 2.1em;
+                    // font-size: 2.1em;
+                    font-size: min(2.1em, 3 * 100vw / 100);
                     grid-row: span 2;
                     align-self: center;
                 }
@@ -89,6 +97,7 @@ body {
         font-size: 0.6em;
 
         .titles {
+            color: $lightGray;
             border-bottom: 1px black solid;
             padding-bottom: 0.25em;
         }
@@ -110,6 +119,7 @@ body {
         }
 
         .tech-row {
+            color: $lightGray;
             grid-column: span 3;
             text-align: right;
             display: flex;
@@ -123,10 +133,49 @@ body {
                 border-bottom: none;
             }
         }
+
+        .oblio {
+            padding-top: 2em;
+
+            .oblioCTA {
+                max-width: 30ch;
+                grid-column: span 1;
+                align-self: center;
+                // grid-row: span 2;
+            }
+
+            .oblioLink {
+                color: $lightGray;
+                font-weight: 100;
+                align-self: center;
+                font-size: 2em;
+                grid-column: span 4;
+                grid-row: span 1;
+                line-height: 1em;
+                height: 100%;
+
+                grid-column: span 2;
+
+                a {
+                    display: inline-flex;
+                    flex-shrink: 1;
+                    align-items: center;
+                    border: 1px $lightGray solid;
+                    line-height: 1em;
+                    height: 100%;
+                    padding: 0em 1em;
+
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+
     }
 
     .about {
         font-size: 0.65em;
+
 
         .bodyCopy {
             line-height: 2em;
@@ -137,33 +186,224 @@ body {
 
             p {
                 padding-bottom: 2em;
+                max-width: 80ch;
             }
-
-
-            // &:nth-child(2n + 1) {
-            //     // padding-top: 4em;
-            //     grid-column-start: 4;
-            //     grid-column-end: 7;
-            // }
-
-            // &:nth-child(3n + 1) {
-            //     grid-column-start: 3;
-            //     grid-column-end: 6;
-            // }
         }
 
-        .listBox {
-            // border: 1px black solid;
+        .lists {
+            display: grid;
+            grid-template-columns: subgrid;
+            // grid-column: span 2;
+            grid-row: span 2;
+            grid-auto-rows: min-content;
 
-            .listTitle {
-                padding-bottom: 1em;
-                border-bottom: 1px black solid;
-            }
+            .listBox {
+                // border: 1px black solid;
+                padding-bottom: 2em;
 
-            ul {
-                text-transform: uppercase;
-                padding-top: 1em;
+                .listTitle {
+                    padding-bottom: 1em;
+                    border-bottom: 1px black solid;
+                }
+
+                ul {
+                    text-transform: uppercase;
+                    padding-top: 1em;
+                }
             }
         }
     }
+
+    .footer {
+        text-transform: uppercase;
+        font-size: 0.65em;
+
+        .link {
+            grid-column: span 2;
+            padding-bottom: 1em;
+
+            a {
+                display: block;
+            }
+        }
+
+        .dashes {
+            display: grid;
+            grid-template-columns: subgrid;
+            grid-column: span $colCountFull;
+
+            .dash {
+                border-top: 1px black solid;
+                padding-bottom: 1em;
+                grid-row: unset;
+                grid-column: span 2;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 850px) {
+    html {
+        font-size: min(20px, 3.5 * 100vw / 100);
+    }
+
+    .wrapper {
+        padding: 1em 2em;
+
+        .section {
+            .sectionTitle {
+                font-size: 3rem;
+            }
+        }
+
+        .topper {
+
+            .dashes {
+                .dash {
+                    &:nth-child(1) {
+                        grid-column: span 4;
+                    }
+
+                    &:nth-child(3) {
+                        display: none;
+                    }
+                }
+            }
+
+            >div {
+                &.topperCol1 {
+                    grid-column: span 4;
+
+                    .name {
+                        font-size: 2.1em;
+                        grid-column: span 4;
+                    }
+                }
+
+                >div {}
+            }
+
+        }
+
+        .work {
+            font-size: 0.8em;
+
+            li {
+                padding: 1em 0;
+            }
+
+            .titles {
+                .tech-row {
+                    display: none;
+                }
+
+                .client-row,
+                .project-row {
+                    font-size: unset;
+                    line-height: 1em;
+                }
+            }
+
+            .client-row {
+                font-size: 1.25em;
+                line-height: 1em;
+                grid-column: span 2;
+            }
+
+            .project-row {
+                font-size: 1.25em;
+                line-height: 1em;
+                grid-column: span 4;
+            }
+
+            .tech-row {
+                font-size: 0.8em;
+                padding-top: 1em;
+                justify-content: start;
+                grid-column: span $colCountFull;
+            }
+
+
+            .oblio {
+
+                .oblioCTA {
+                    // font-size: 0.7em;
+                    grid-column: span 2;
+                }
+
+                .oblioLink {
+                    font-size: 2em;
+                    grid-column: span 4;
+
+                    a {
+                        display: flex;
+                        justify-content: center;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+
+        .about {
+            font-size: 0.8em;
+
+            .bodyCopy {
+                grid-column: span 6;
+
+                p {
+                    // padding-right: 2em;
+                }
+            }
+
+            .lists {
+                display: grid;
+                grid-template-columns: subgrid;
+                grid-column: span 6;
+                grid-row: span 2;
+                grid-auto-rows: min-content;
+                // font-size: 1em;
+                // line-height: 1em;
+
+                .listBox {
+                    // border: 1px black solid;
+                    padding-bottom: 2em;
+                    grid-column: span 3;
+
+                    .listTitle {
+                        padding-bottom: 1em;
+                        border-bottom: 1px black solid;
+                    }
+
+                    ul {
+                        text-transform: uppercase;
+                        padding-top: 1em;
+                    }
+                }
+            }
+        }
+
+        .footer {
+            .link {
+                display: flex;
+                justify-content: space-between;
+                grid-column: span 3;
+
+                a {
+                    display: inline-block;
+                }
+            }
+
+            .dashes {
+
+                .dash {
+                    grid-column: span 3;
+
+                    &:nth-child(3) {
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+
 }

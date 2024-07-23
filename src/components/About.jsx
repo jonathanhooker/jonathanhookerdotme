@@ -15,25 +15,27 @@ const About = ({ }) => {
       </div>
       {/* <div className="spacer"></div> */}
       <div className="spacer"></div>
-      <div className='listBox languages'>
-        <div className="listTitle">LANGUAGES</div>
-        <ul>
-          <li>Javascript</li>
-          <li>Python</li>
-          <li>Swift</li>
-          <li>C#</li>
-          <li>C++</li>
-        </ul>
-      </div>
-      <div className='listBox awards'>
-        <div className="listTitle">AWARDS</div>
-        <ul>
-          <li>Awwwards</li>
-          <li>FWA SOTD</li>
-          <li>CSS Design Award</li>
-          <li>Webby</li>
-          <li>W3</li>
-        </ul>
+      <div className="lists">
+        <div className='listBox languages'>
+          <div className="listTitle">LANGUAGES</div>
+          <ul>
+            <li>Javascript</li>
+            <li>Python</li>
+            <li>Swift</li>
+            <li>C#</li>
+            <li>C++</li>
+          </ul>
+        </div>
+        <div className='listBox awards'>
+          <div className="listTitle">AWARDS</div>
+          <ul>
+            <li>Awwwards</li>
+            <li>FWA SOTD</li>
+            <li>CSS Design Award</li>
+            <li>Webby</li>
+            <li>W3</li>
+          </ul>
+        </div>
       </div>
     </div>
   )

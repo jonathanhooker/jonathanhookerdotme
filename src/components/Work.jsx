@@ -70,6 +70,13 @@ const Work = ({ }) => {
         </li>
       )}
     </ul>
+
+    <div className='oblio full-row'>
+      <div className='oblioCTA'>VIEW MORE OF MY WORK AND CASE STUDIES AT:</div>
+      <div className="oblioLink">
+        <a href="https://oblio.io">OBLIO.IO</a>
+      </div>
+    </div>
   </div>
 }
 
