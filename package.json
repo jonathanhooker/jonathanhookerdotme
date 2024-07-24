@@ -17,11 +17,18 @@
     "start": "next start"
   },
   "dependencies": {
+    "@babel/core": "^7.24.9",
     "@ducanh2912/next-pwa": "^10.0.0",
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
+    "@react-three/postprocessing": "^2.16.2",
+    "babel-plugin-glsl": "^1.0.0",
+    "framer-motion": "^11.3.12",
     "glsl-random": "^0.0.5",
+    "gsap": "^3.12.5",
+    "install": "^0.13.0",
     "next": "^14.0.4",
+    "npm": "^10.8.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.77.8",

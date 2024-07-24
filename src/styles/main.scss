@@ -47,7 +47,15 @@ html {
     }
 
     .home {
+
         // min-height: 50vh;
+        .Featured {
+            display: block;
+            // min-height: 50vh;
+            aspect-ratio: 16 / 9;
+            background: black;
+            grid-column: span $colCountFull;
+        }
     }
 
     .topper {
@@ -55,6 +63,7 @@ html {
         grid-template-columns: subgrid;
         font-size: 0.75em;
         grid-auto-rows: min-content;
+        padding-bottom: 2em;
 
         .dashes {
             display: grid;
@@ -250,9 +259,17 @@ html {
     .wrapper {
         padding: 1em 2em;
 
+
         .section {
             .sectionTitle {
                 font-size: 3rem;
+            }
+        }
+
+        .home {
+
+            .Featured {
+                aspect-ratio: 1;
             }
         }
 
