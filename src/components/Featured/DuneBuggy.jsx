@@ -274,7 +274,7 @@ const DuneBuggyScene = ({ }) => {
         <Canvas shadows>
             <Scene />
             <EffectComposer>
-                <TiltShiftVignetteEffect r={0.635} v={3.5 / 512} offset={1} darkness={2.5} />
+                <TiltShiftVignetteEffect r={0.635} v={3.5 / 512} offset={2} darkness={4.5} />
                 {/* <HueSaturation saturation={-1} /> */}
                 {/* <DotScreen /> */}
             </EffectComposer>

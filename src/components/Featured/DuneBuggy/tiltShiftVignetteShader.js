@@ -48,7 +48,7 @@ var TiltShiftVignetteShader = [
 
 	"	vec2 _uv = pow( ( uv - vec2( 0.5 ) ) * vec2( offset ), vec2(2.0) );",
 
-	"	outputColor = vec4( mix( sum.rgb, vec3( 1.0 - darkness ), dot( _uv, _uv ) ), sum.a );",
+	"	outputColor = vec4( mix( sum.rgb, vec3( darkness ), dot( _uv, _uv ) ), sum.a );",
 	"}"
 ].join("\n");
 

@@ -1,11 +1,20 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 $colCountFull: 6;
-$lightGray: #888888;
+$bgColor: #ffffff;
+$mainColor: #292727;
+$deAccentCol: #8e979c;
+$accentCol: rgb(13, 85, 168);
 
 html {
     font-size: 20px;
     font-size: max(20px, 1.4vw);
+}
+
+body {
+    background: $bgColor;
+    color: $mainColor;
 }
 
 .wrapper {
@@ -40,9 +49,14 @@ html {
             font-size: 3rem;
             line-height: 1em;
             -webkit-text-stroke-width: 1px;
-            -webkit-text-stroke-color: black;
+            -webkit-text-stroke-color: $mainColor;
             -webkit-text-fill-color: transparent;
             padding-bottom: 2rem;
+
+            // color: $accentCol;
+            // font-family: "Bebas Neue", sans-serif;
+            // font-weight: 400;
+            // letter-spacing: 0.05em;
         }
     }
 
@@ -53,7 +67,7 @@ html {
             display: block;
             // min-height: 50vh;
             aspect-ratio: 16 / 9;
-            background: black;
+            background: $mainColor;
             grid-column: span $colCountFull;
         }
     }
@@ -71,7 +85,7 @@ html {
             grid-column: span $colCountFull;
 
             .dash {
-                border-top: 1px black solid;
+                border-top: 1px $mainColor solid;
                 padding-bottom: 1em;
                 grid-row: unset;
                 grid-column: span 2;
@@ -106,15 +120,19 @@ html {
         font-size: 0.6em;
 
         .titles {
-            color: $lightGray;
-            border-bottom: 1px black solid;
+            color: $deAccentCol;
+            border-bottom: 1px $mainColor solid;
             padding-bottom: 0.25em;
         }
 
         li {
             padding: 0.5em 0;
-            border-bottom: 1px black solid;
+            border-bottom: 1px $mainColor solid;
             text-transform: uppercase;
+
+            .tech-row {
+                color: $accentCol;
+            }
         }
 
         .client-row {
@@ -128,7 +146,6 @@ html {
         }
 
         .tech-row {
-            color: $lightGray;
             grid-column: span 3;
             text-align: right;
             display: flex;
@@ -154,7 +171,7 @@ html {
             }
 
             .oblioLink {
-                color: $lightGray;
+                color: $accentCol;
                 font-weight: 100;
                 align-self: center;
                 font-size: 2em;
@@ -169,7 +186,7 @@ html {
                     display: inline-flex;
                     flex-shrink: 1;
                     align-items: center;
-                    border: 1px $lightGray solid;
+                    border: 1px $accentCol solid;
                     line-height: 1em;
                     height: 100%;
                     padding: 0em 1em;
@@ -207,17 +224,21 @@ html {
             grid-auto-rows: min-content;
 
             .listBox {
-                // border: 1px black solid;
+                // border: 1px $mainColor solid;
                 padding-bottom: 2em;
 
                 .listTitle {
                     padding-bottom: 1em;
-                    border-bottom: 1px black solid;
+                    border-bottom: 1px $mainColor solid;
                 }
 
                 ul {
                     text-transform: uppercase;
                     padding-top: 1em;
+
+                    li {
+                        color: $accentCol;
+                    }
                 }
             }
         }
@@ -233,6 +254,7 @@ html {
 
             a {
                 display: block;
+                color: $accentCol;
             }
         }
 
@@ -242,7 +264,7 @@ html {
             grid-column: span $colCountFull;
 
             .dash {
-                border-top: 1px black solid;
+                border-top: 1px $mainColor solid;
                 padding-bottom: 1em;
                 grid-row: unset;
                 grid-column: span 2;
@@ -382,13 +404,13 @@ html {
                 // line-height: 1em;
 
                 .listBox {
-                    // border: 1px black solid;
+                    // border: 1px $mainColor solid;
                     padding-bottom: 2em;
                     grid-column: span 3;
 
                     .listTitle {
                         padding-bottom: 1em;
-                        border-bottom: 1px black solid;
+                        border-bottom: 1px $mainColor solid;
                     }
 
                     ul {
