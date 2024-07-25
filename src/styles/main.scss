@@ -65,7 +65,8 @@ body {
         // min-height: 50vh;
         .Featured {
             display: block;
-            // min-height: 50vh;
+            max-height: 50vh;
+            width: 100%;
             aspect-ratio: 16 / 9;
             background: $mainColor;
             grid-column: span $colCountFull;
