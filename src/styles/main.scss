@@ -329,13 +329,14 @@ body {
         font-size: min(20px, 3.5 * 100vw / 100);
     }
 
-    .padded-sides {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
 
     .wrapper {
+
         // padding: 1em 2em;
+        .padded-sides {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
 
 
         .section {
@@ -352,6 +353,7 @@ body {
         .home {}
 
         .topper {
+            padding-top: 2rem;
 
             .dashes {
                 .dash {
