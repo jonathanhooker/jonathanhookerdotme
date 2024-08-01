@@ -7,6 +7,7 @@ export const metadata = {
 }
 
 export default function RootLayout({ children }) {
+
   return (
     <html lang='en' className='antialiased'>
       {/*
@@ -15,7 +16,6 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body>
-        {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         <Layout>{children}</Layout>
       </body>
     </html>

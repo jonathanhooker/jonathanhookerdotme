@@ -13,7 +13,7 @@ const Dashes = () => {
 
 const Footer = ({ }) => {
   return (
-    <div className="footer full-row">
+    <div className="section padded-sides footer full-row">
       <div className='link'>EMAIL: <a href="mailto:hello@jonathanhooker.me">hello@jonathanhooker.me</a></div>
       <div className='link'>linkedin: <a target="_blank" href="https://www.linkedin.com/in/jchooker/">JCHOOKER</a></div>
       <div className='link'>github: <a target="_blank" href="https://github.com/jonathanhooker">JONATHANHOOKER</a></div>

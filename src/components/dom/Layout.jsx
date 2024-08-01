@@ -27,6 +27,7 @@ const Layout = ({ children }) => {
           width: '100vw',
           height: '100vh',
           pointerEvents: 'none',
+          zIndex: 2
         }}
         eventSource={ref}
         eventPrefix='client'

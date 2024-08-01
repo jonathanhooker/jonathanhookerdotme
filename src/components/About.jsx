@@ -3,13 +3,11 @@
 const About = ({ }) => {
 
   return (
-    <div className="about section full-width">
-      <div className='sectionTitle'>What Do I Do?</div>
-      {/* <div className='bodyCopy'>I'm a creative engineer: I love to code and I love using that skill to make cool things. I started my career as a visual designer but quickly found that my tech side took over.</div>
-      <div className='bodyCopy'>Over the last 20 years I've had the opportunity to build websites, games, mobile and desktop apps, AR filters, and photobooths for some amazing clients.</div>
-      <div className='bodyCopy'>I see learning as a life long journey. I'm constantly experimenting with new applications and coding languages. The harder a challenge is, the more it excites me.</div> */}
+    <div className="about section padded-sides full-width">
+      {/* <div className='sectionTitle'>People often ask me <span className="emphasized">“What Do You Do?”</span></div> */}
+      <div className='sectionTitle'>You know that thing, when you&apos;re at a party and someone asks <span className="emphasized">“What Do You Do?”</span></div>
       <div className='bodyCopy'>
-        <p>That can be hard to answer SUCCINCTLY since I wear a lot of hats, but the short answer is that I&apos;m a creative engineer: I love to code and I love using that skill to make cool things.</p>
+        <p className="emphasize">I find that hard to answer SUCCINCTLY since I wear a lot of hats, but the short answer is that I&apos;m a creative engineer: I love to code and I love using that skill to make cool things.</p>
         <p>Over the last 20 years I&apos;ve had the opportunity to build websites, games, mobile and desktop apps, AR filters, and photobooths for some amazing clients.</p>
         <p>I see learning as a lifelong journey. I&apos;m constantly experimenting with new applications and coding languages. The harder a challenge is, the more it excites me.</p>
       </div>
@@ -37,7 +35,7 @@ const About = ({ }) => {
           </ul>
         </div>
       </div>
-    </div>
+    </div >
   )
 }
 

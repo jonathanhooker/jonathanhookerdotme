@@ -7,7 +7,6 @@ const Featured = ({ }) => {
   return (
     <div className="Featured">
       <DuneBuggyScene></DuneBuggyScene>
-      {/* <FireSymbol></FireSymbol> */}
     </div>
   )
 }

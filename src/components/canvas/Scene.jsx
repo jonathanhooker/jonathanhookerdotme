@@ -10,6 +10,8 @@ export default function Scene({ ...props }) {
   return (
     <Canvas {...props}
       onCreated={(state) => (state.gl.toneMapping = THREE.AgXToneMapping)}
+      dpr={1}
+      shadows
     >
       {/* @ts-ignore */}
       <r3f.Out />

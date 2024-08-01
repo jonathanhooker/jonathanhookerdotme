@@ -4,11 +4,14 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { useGLTF, PerspectiveCamera, Clone, Plane, Sphere } from '@react-three/drei'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { useLoader } from '@react-three/fiber'
-import { MeshBasicMaterial, Vector3, TextureLoader, MeshStandardMaterial, MeshLambertMaterial } from 'three'
+import { MeshBasicMaterial, Vector3, TextureLoader, MeshStandardMaterial, MeshLambertMaterial, SRGBColorSpace } from 'three'
 import { DuneBuggy } from './DuneBuggy/duneBuggy'
 import { DynamicTerrain } from './DuneBuggy/dynamicTerrain'
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette, HueSaturation, DotScreen } from '@react-three/postprocessing'
 import { TiltShiftVignetteEffect } from './DuneBuggy/tiltShiftVignetteShader'
+import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
+
+import { View } from '../canvas/View'
 
 // this is basically Modulo, but it works with negative numbers
 const wrapVal = function (val, range) {
@@ -44,7 +47,9 @@ const Terrain = forwardRef(function Terrain({ }, ref) {
     })
 
     const TerrainPeice = function (obj, map) {
-        const albedo = useLoader(TextureLoader, map);
+        const albedo = useLoader(TextureLoader, map, (loader) => {
+            // console.log(loader);
+        });
         const mat = new MeshStandardMaterial({ map: albedo });
         const loadedObj = useLoader(OBJLoader, obj);
         const geo = useMemo(() => {
@@ -56,6 +61,12 @@ const Terrain = forwardRef(function Terrain({ }, ref) {
             });
             return g;
         }, [loadedObj]);
+
+        useMemo((_tex) => {
+            albedo.colorSpace = SRGBColorSpace;
+            return albedo;
+        }, [albedo]);
+
         return [geo, mat];
     }
 
@@ -118,54 +129,57 @@ const DuneBuggyModel = forwardRef(function DuneBuggyModel({ scale }, ref) {
     const { nodes, materials } = useGLTF('/assets/dunebuggy/models/duneBuggy.glb');
 
     return (
-        <group scale={scale} dispose={null} name={`dunebuggy`}>
-            <group ref={buggySpin}>
+        <Suspense fallback={null}>
+            <group scale={scale} dispose={null} name={`dunebuggy`}>
+                <group ref={buggySpin}>
+                    <mesh
+                        receiveShadow={true}
+                        castShadow={true}
+                        geometry={nodes.Frame.geometry}
+                        material={materials.VertexColor}
+                        position={[0, 0, -0.177]}
+                        ref={buggyFrame}
+                    />
+                </group>
                 <mesh
                     receiveShadow={true}
                     castShadow={true}
-                    geometry={nodes.Frame.geometry}
+                    geometry={nodes.BackLeftWheel.geometry}
                     material={materials.VertexColor}
-                    position={[0, 0, -0.177]}
-                    ref={buggyFrame}
+                    position={[-1.829, 0, 2.253]}
+                    ref={wheel_bl}
+                />
+                <mesh
+                    receiveShadow={true}
+                    castShadow={true}
+                    geometry={nodes.FrontLeftWheel.geometry}
+                    material={materials.VertexColor}
+                    position={[-1.366, 0, -2.608]}
+                    ref={wheel_fl}
+                />
+                <mesh
+                    receiveShadow={true}
+                    castShadow={true}
+                    geometry={nodes.FrontRightWheel.geometry}
+                    material={materials.VertexColor}
+                    position={[1.366, 0, -2.608]}
+                    ref={wheel_fr}
+                />
+                <mesh
+                    receiveShadow={true}
+                    castShadow={true}
+                    geometry={nodes.BackRightWheel.geometry}
+                    material={materials.VertexColor}
+                    position={[1.829, 0, 2.253]}
+                    ref={wheel_br}
                 />
             </group>
-            <mesh
-                receiveShadow={true}
-                castShadow={true}
-                geometry={nodes.BackLeftWheel.geometry}
-                material={materials.VertexColor}
-                position={[-1.829, 0, 2.253]}
-                ref={wheel_bl}
-            />
-            <mesh
-                receiveShadow={true}
-                castShadow={true}
-                geometry={nodes.FrontLeftWheel.geometry}
-                material={materials.VertexColor}
-                position={[-1.366, 0, -2.608]}
-                ref={wheel_fl}
-            />
-            <mesh
-                receiveShadow={true}
-                castShadow={true}
-                geometry={nodes.FrontRightWheel.geometry}
-                material={materials.VertexColor}
-                position={[1.366, 0, -2.608]}
-                ref={wheel_fr}
-            />
-            <mesh
-                receiveShadow={true}
-                castShadow={true}
-                geometry={nodes.BackRightWheel.geometry}
-                material={materials.VertexColor}
-                position={[1.829, 0, 2.253]}
-                ref={wheel_br}
-            />
-        </group>
+        </Suspense>
     )
 });
 
-const Scene = ({ }) => {
+const Scene = forwardRef(function Scene({ scrollYProgress }, ref) {
+    // const { gl } = useThree();
     // react refs
     const cameraRef = useRef(null);
     const terrainRef = useRef(null);
@@ -181,12 +195,24 @@ const Scene = ({ }) => {
 
     const buggyScale = 0.5;
 
+    useImperativeHandle(ref, () => {
+        return {
+            updateScroll: (val) => {
+                // console.log("Page scroll: ", val)
+                cameraRef.current.position.set(0, 100, 100 + (-(1 - val * 2) * 50));
+                cameraRef.current.lookAt(new Vector3(0, 10 + (-(1 - val * 2) * 20), 0));
+            }
+        }
+    })
+
     // this is our initialization function we want to call before our update loop
     const init = () => {
         if (initialized.current) return; // should only call once
         if (!cameraRef.current) { return; }
-        cameraRef.current.lookAt(new Vector3(0, 11, 0));
+        cameraRef.current.lookAt(new Vector3(0, 18, 0));
         terrainRef.current.moveTerrain(0, 0);
+
+        // window.gl = gl;
 
         terrain.current.setPosition(50, 50);
         duneBuggy.current.rotate(Math.PI); // default start direction
@@ -256,7 +282,7 @@ const Scene = ({ }) => {
 
     return (
         <>
-            <PerspectiveCamera ref={cameraRef} fov={30} makeDefault position={[0, 100, 100]} near={1} far={10000} rotation={[0, 0, 0]} />
+            <PerspectiveCamera ref={cameraRef} fov={20} makeDefault position={[0, 100, 100]} near={1} far={10000} rotation={[0, 0, 0]} />
             <directionalLight position={[50, 50, 50]} castShadow={true} ref={dirLightRef} intensity={1} />
             <ambientLight intensity={0.5} />
             <group scale={[2, 2, 2]}>
@@ -265,20 +291,30 @@ const Scene = ({ }) => {
             </group>
         </>
     )
-}
+});
 
 const DuneBuggyScene = ({ }) => {
-
+    const canvasRef = useRef(null);
+    const sceneRef = useRef(null);
+    const { scrollY, scrollYProgress } = useScroll({
+        target: canvasRef,
+        offset: ["start end", "end start"]
+    })
+    useMotionValueEvent(scrollYProgress, "change", (latest) => {
+        if (sceneRef.current) sceneRef.current.updateScroll(latest);
+    })
 
     return (
-        <Canvas shadows>
-            <Scene />
-            <EffectComposer>
-                <TiltShiftVignetteEffect r={0.635} v={3.5 / 512} offset={2} darkness={4.5} />
-                {/* <HueSaturation saturation={-1} /> */}
-                {/* <DotScreen /> */}
-            </EffectComposer>
-        </Canvas>
+        <motion.span ref={canvasRef}>
+            <View className='view'>
+                {/* <Canvas shadows dpr={1} legacy={false} ref={canvasRef}> */}
+                <Scene scrollYProgress={scrollYProgress} ref={sceneRef} />
+                {/* <EffectComposer>
+                    <TiltShiftVignetteEffect r={0.635} v={3.5 / 512} offset={0.5} darkness={3.5} />
+                </EffectComposer> */}
+                {/* </Canvas> */}
+            </View>
+        </motion.span>
     )
 }
 

@@ -12,7 +12,7 @@ const Dashes = () => {
 }
 
 const Topper = ({ }) => {
-  return <div className="topper full-row">
+  return <div className="topper full-row padded-sides">
     <Dashes></Dashes>
     <div className="topperCol1">
       <div className="name">Jonathan Hooker</div>

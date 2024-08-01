@@ -50,7 +50,7 @@ const projectData = [
 
 const Work = ({ }) => {
 
-  return <div className="work section full-width">
+  return <div className="work section padded-sides full-width">
     <div className='sectionTitle'>RECENT WORK</div>
     <div className='titles full-row'>
       <div className='client-row'>CLIENT</div>
