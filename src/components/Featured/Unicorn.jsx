@@ -85,9 +85,9 @@ const Unicorn = ({ }) => {
             unicornRef.current.rotation.y = latest * Math.PI / 4;
         }
     })
-    useMotionValueEvent(introProgress, "change", (latest) => {
-        console.log(latest);
-    })
+    // useMotionValueEvent(introProgress, "change", (latest) => {
+    //     console.log(latest);
+    // })
 
     const envTex = useLoader(RGBELoader, '/assets/images/syferfontein_0d_clear_puresky_1k.hdr');
 

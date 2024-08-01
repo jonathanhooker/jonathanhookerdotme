@@ -22,6 +22,7 @@ body {
 }
 
 .wrapper {
+    // position: relative;
     font-family: "JetBrains Mono", monospace;
     font-optical-sizing: auto;
     font-weight: 400;
@@ -47,6 +48,7 @@ body {
     }
 
     .section {
+        position: relative;
         display: grid;
         grid-template-columns: subgrid;
         grid-column: span $colCountFull;

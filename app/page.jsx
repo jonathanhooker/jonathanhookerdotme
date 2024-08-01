@@ -42,9 +42,9 @@ const Spacer = ({ height }) => {
 export default function Page() {
   const wrapperRef = useRef(null);
   const homeRef = useRef(null);
-  const { scrollY, scrollYProgress } = useScroll();
   const canvasRef = useRef(null);
 
+  const { scrollY, scrollYProgress } = useScroll();
   const bgColor = useTransform(
     scrollYProgress,
     [0, 0.5],

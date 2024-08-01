@@ -107,7 +107,6 @@ const DuneBuggyModel = forwardRef(function DuneBuggyModel({ scale }, ref) {
         return {
             update: (_duneBuggy) => {
 
-                // buggySpin.current.rotation.y = Math.PI - _duneBuggy.rotation;
                 buggySpin.current.rotation.y = Math.PI - _duneBuggy.rotation;
                 buggyFrame.current.rotation.x = _duneBuggy.tilt; // tilt
                 buggyFrame.current.rotation.z = _duneBuggy.roll; // roll
@@ -231,9 +230,8 @@ const Scene = forwardRef(function Scene({ scrollYProgress }, ref) {
 
         console.log(dirLightRef.current);
     }
-    // useEffect(() => { init(); }, []);
 
-    // this is out update loop
+    // this is our update loop
     useFrame((state, delta, xrFrame) => {
         if (!initialized.current) {
             init();
@@ -305,16 +303,13 @@ const DuneBuggyScene = ({ }) => {
     })
 
     return (
-        <motion.span ref={canvasRef}>
+        <motion.div ref={canvasRef} className='view'>
             <View className='view'>
-                {/* <Canvas shadows dpr={1} legacy={false} ref={canvasRef}> */}
-                <Scene scrollYProgress={scrollYProgress} ref={sceneRef} />
-                {/* <EffectComposer>
-                    <TiltShiftVignetteEffect r={0.635} v={3.5 / 512} offset={0.5} darkness={3.5} />
-                </EffectComposer> */}
-                {/* </Canvas> */}
+                <Scene ref={sceneRef}
+                    scrollYProgress={scrollYProgress}
+                />
             </View>
-        </motion.span>
+        </motion.div>
     )
 }
 
