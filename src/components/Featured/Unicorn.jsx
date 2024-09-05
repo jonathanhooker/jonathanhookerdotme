@@ -5,7 +5,7 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import { useGLTF, PerspectiveCamera, Clone, Plane, Sphere, Stage, OrbitControls, Environment, MeshTransmissionMaterial, MeshRefractionMaterial } from '@react-three/drei'
 import { OBJLoader } from 'three/examples/jsm/loaders/OBJLoader'
 import { useLoader } from '@react-three/fiber'
-import { MeshBasicMaterial, Vector3, TextureLoader, MeshStandardMaterial, MeshLambertMaterial, SRGBColorSpace, OneMinusConstantAlphaFactor } from 'three'
+import { MeshBasicMaterial, Vector3, TextureLoader, MeshStandardMaterial, MeshLambertMaterial, SRGBColorSpace, OneMinusConstantAlphaFactor, DoubleSide } from 'three'
 import { DuneBuggy } from './DuneBuggy/duneBuggy'
 import { DynamicTerrain } from './DuneBuggy/dynamicTerrain'
 import { Bloom, DepthOfField, EffectComposer, Noise, Vignette, HueSaturation, DotScreen } from '@react-three/postprocessing'
@@ -68,6 +68,62 @@ const UnicornModel = forwardRef(function UnicornModel(props, ref) {
     )
 });
 
+const Shards = forwardRef(function UnicornModel(props, ref) {
+
+    const { nodes, materials } = useGLTF('/assets/models/shards.glb');
+    const shardsRef1 = useRef(null);
+    const shardsRef2 = useRef(null);
+    const shardsRef3 = useRef(null);
+    useFrame((state, delta, frame) => {
+        shardsRef1.current.rotation.y += delta * .05;
+        shardsRef2.current.rotation.y += delta * .035;
+        shardsRef3.current.rotation.y += delta * .025;
+        shardsRef1.current.rotation.x += delta * .035;
+        shardsRef2.current.rotation.x += delta * .025;
+        shardsRef3.current.rotation.x += delta * -.035;
+
+        shardsRef1.current.scale.y = 1 + 0.1 * Math.sin(state.clock.elapsedTime * 1);
+        shardsRef2.current.scale.x = 1 + 0.05 * Math.sin(0.25 + state.clock.elapsedTime * 0.75);
+        shardsRef3.current.scale.z = 1 + 0.05 * Math.cos(0.75 + state.clock.elapsedTime * 0.65);
+        // shardsRef1.current.scale.y = 1 + 0.25 * Math.sin(state.clock.elapsedTime * 1);
+
+        // shardsRef2.current.scale.y = Math.sin(state.clock.elapsedTime * 100);
+        // shardsRef3.current.scale.y = Math.sin(state.clock.elapsedTime * 100);
+        // shardsRef2.current.rotation.y += delta * .035;
+        // shardsRef3.current.rotation.y += delta * .025;
+    });
+
+    return (
+        <group {...props} dispose={null}>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.shards3.geometry}
+                ref={shardsRef1}
+            >
+                <MeshTransmissionMaterial side={DoubleSide} color={"white"} resolution={512} thickness={50} anisotropy={1} chromaticAberration={10} />
+            </mesh>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.shards2.geometry}
+                ref={shardsRef2}
+            >
+                <MeshTransmissionMaterial side={DoubleSide} color={"white"} resolution={512} thickness={50} anisotropy={1} chromaticAberration={10} />
+            </mesh>
+            <mesh
+                castShadow
+                receiveShadow
+                geometry={nodes.shards1.geometry}
+                rotation={[0, 0, 0.197]}
+                ref={shardsRef3}
+            >
+                <MeshTransmissionMaterial side={DoubleSide} color={"white"} resolution={512} thickness={50} anisotropy={1} chromaticAberration={10} />
+            </mesh>
+        </group>
+    )
+});
+
 const Unicorn = ({ }) => {
     const introProgress = useMotionValue(0);
     const viewRef = useRef(null);
@@ -105,6 +161,7 @@ const Unicorn = ({ }) => {
                     {/* <Canvas dpr={1} ref={canvasRef}> */}
                     <PerspectiveCamera ref={cameraRef} fov={85} makeDefault position={[150, 100, 0]} near={1} far={10000} rotation={[0, Math.PI / 2, 0]} target={[0, 50, 0]} />
                     <UnicornModel envMap={envTex} ref={unicornRef} rotation={[0, 0, 0]} />
+                    <Shards envMap={envTex} rotation={[0, 0, 0]} scale={[35, 35, 35]} position={[0, 100, 0]} />
                     <Environment
                         files='/assets/images/syferfontein_0d_clear_puresky_1k.hdr'
                         ground={{ height: 45, radius: 1000, scale: 1000 }}
