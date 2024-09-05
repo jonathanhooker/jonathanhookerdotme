@@ -7,7 +7,8 @@ const About = ({ }) => {
       {/* <div className='sectionTitle'>People often ask me <span className="emphasized">“What Do You Do?”</span></div> */}
       <div className='sectionTitle'>You know that thing, when you&apos;re at a party and someone asks <span className="emphasized">“What Do You Do?”</span></div>
       <div className='bodyCopy'>
-        <p className="emphasize">I find that hard to answer SUCCINCTLY since I wear a lot of hats, but the short answer is that I&apos;m a creative engineer: I love to code and I love using that skill to make cool things.</p>
+        <p>That question is hard for me because I love what I do and I want to say too much. I want to tell them how I design, but also how I code. I want to explain that everyday is different because I explore new technologies and work on super cool projects.</p>
+        <p className="emphasize">The short answer is that I&apos;m a creative engineer: I live somewhere in the intersection of tech and art.</p>
         <p>Over the last 20 years I&apos;ve had the opportunity to build websites, games, mobile and desktop apps, AR filters, and photobooths for some amazing clients.</p>
         <p>I see learning as a lifelong journey. I&apos;m constantly experimenting with new applications and coding languages. The harder a challenge is, the more it excites me.</p>
       </div>
