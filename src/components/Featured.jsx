@@ -7,7 +7,7 @@ const Featured = ({ }) => {
   return (
     <>
       <div className="bodyCopy topLine" >
-        CHECK OUT THIS COOL LITTLE DUDE I MADE. THE LOOPING LANDSCAPE WAS PROCEDURALLY GENERATED AND THE PHYSICS ARE A CUSTOM SYSTEM. DON&apos;T BREAK YOUR COCCYX.
+        CHECK OUT THIS COOL LITTLE DUDE I MADE. THE LOOPING LANDSCAPE WAS PROCEDURALLY GENERATED AND THE PHYSICS ARE A CUSTOM SYSTEM.
       </div>
       <div className="Featured">
         <DuneBuggyScene></DuneBuggyScene>
