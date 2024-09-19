@@ -21,7 +21,7 @@ const Topper = ({ }) => {
     <div className="titles">
       <div>Creative Engineer</div>
       <div>Tech Director</div>
-      <div>Maker</div>
+      <div>Designer</div>
     </div>
 
   </div>
