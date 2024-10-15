@@ -66,10 +66,10 @@ export default function Page() {
         {/* <Featured></Featured> */}
       </div>
       <Spacer height={3}></Spacer>
+      <About></About>
+      <Spacer height={5}></Spacer>
       <Work></Work>
       <Spacer height={10}></Spacer>
-      <About></About>
-      <Spacer height={3}></Spacer>
       <div className="section padded-sides">
         <Featured></Featured>
       </div>

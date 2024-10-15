@@ -4,13 +4,11 @@ const About = ({ }) => {
 
   return (
     <div className="about section padded-sides full-width">
-      {/* <div className='sectionTitle'>People often ask me <span className="emphasized">“What Do You Do?”</span></div> */}
-      <div className='sectionTitle'>You know that thing, when you&apos;re at a party and someone asks <span className="emphasized">“What Do You Do?”</span></div>
+      <div className='sectionTitle'>CREATIVE DIRECTOR, DESIGNER, ENGINEER <span className="emphasized">AND MORE</span></div>
       <div className='bodyCopy'>
-        <p>That question is hard for me because I love what I do and I want to say too much. I want to tell them how I design, but also how I code. I want to explain that everyday is different because I explore new technologies and work on super cool projects.</p>
-        <p className="emphasize">The short answer is that I&apos;m a creative engineer: I live somewhere in the intersection of tech and art.</p>
-        <p>Over the last 20 years I&apos;ve had the opportunity to build websites, games, mobile and desktop apps, AR filters, and photobooths for some amazing clients.</p>
-        <p>I see learning as a lifelong journey. I&apos;m constantly experimenting with new applications and coding languages. The harder a challenge is, the more it excites me.</p>
+        <p>I&apos;m a creative with 15 years of experience leading both design and engineering teams. With 100+ successful projects under my belt I know how to take a project from concept to completion. I prefer to be in the trenches with my team helping in whatever way makes the most sense. That could be pair programming, building mood boards, prototyping a concept, or anything else that needs to be done. </p>
+        <p>I believe that learning is a life long journey and I incorporate constant learning into my process. I enjoy picking up new techniques and applications that my team can benefit from and bringing them back to the team. </p>
+        <p>My clients include some of the largest brands in the world such as Warner Bros, Paramount Pictures, Netflix, Puma, and Peloton.</p>
       </div>
       {/* <div className="spacer"></div> */}
       <div className="spacer"></div>
