@@ -7,7 +7,7 @@ const Featured = ({ }) => {
   return (
     <>
       <div className="bodyCopy topLine" >
-        CHECK OUT THIS COOL LITTLE DUDE I MADE. THE LOOPING LANDSCAPE WAS PROCEDURALLY GENERATED AND THE PHYSICS ARE A CUSTOM SYSTEM.
+        I&apos;m going to leave you with this cool LITTLE DUDE I MADE. It was a lot of fun to experiment with a procedurally generated landscape and custom physics system.
       </div>
       <div className="Featured">
         <DuneBuggyScene></DuneBuggyScene>
