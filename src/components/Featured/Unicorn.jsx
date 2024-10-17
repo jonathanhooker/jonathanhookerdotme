@@ -85,12 +85,6 @@ const Shards = forwardRef(function UnicornModel(props, ref) {
         shardsRef1.current.scale.y = 1 + 0.1 * Math.sin(state.clock.elapsedTime * 1);
         shardsRef2.current.scale.x = 1 + 0.05 * Math.sin(0.25 + state.clock.elapsedTime * 0.75);
         shardsRef3.current.scale.z = 1 + 0.05 * Math.cos(0.75 + state.clock.elapsedTime * 0.65);
-        // shardsRef1.current.scale.y = 1 + 0.25 * Math.sin(state.clock.elapsedTime * 1);
-
-        // shardsRef2.current.scale.y = Math.sin(state.clock.elapsedTime * 100);
-        // shardsRef3.current.scale.y = Math.sin(state.clock.elapsedTime * 100);
-        // shardsRef2.current.rotation.y += delta * .035;
-        // shardsRef3.current.rotation.y += delta * .025;
     });
 
     return (
@@ -141,9 +135,6 @@ const Unicorn = ({ }) => {
             unicornRef.current.rotation.y = latest * Math.PI / 4;
         }
     })
-    // useMotionValueEvent(introProgress, "change", (latest) => {
-    //     console.log(latest);
-    // })
 
     const envTex = useLoader(RGBELoader, '/assets/images/syferfontein_0d_clear_puresky_1k.hdr');
 
@@ -154,11 +145,6 @@ const Unicorn = ({ }) => {
         >
             <View className='view'>
                 <Suspense fallback={null}>
-                    {/* <Dog scale={2} position={[0, -1.6, 0]} rotation={[0.0, -0.3, 0]} /> */}
-                    {/* <Common color={'lightpink'} /> */}
-                    {/* </View>
-        <View className="view"> */}
-                    {/* <Canvas dpr={1} ref={canvasRef}> */}
                     <PerspectiveCamera ref={cameraRef} fov={85} makeDefault position={[150, 100, 0]} near={1} far={10000} rotation={[0, Math.PI / 2, 0]} target={[0, 50, 0]} />
                     <UnicornModel envMap={envTex} ref={unicornRef} rotation={[0, 0, 0]} />
                     <Shards envMap={envTex} rotation={[0, 0, 0]} scale={[35, 35, 35]} position={[0, 100, 0]} />
